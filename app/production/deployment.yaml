@@ -4,16 +4,16 @@ metadata:
   name: demoappprod
   namespace: flux-system
   labels:
-    name: demoappprod-deploy
+    app: apache-app
 spec:
   selector:
     matchLabels:
-      name: demoappprod
+      app: apache-app
   replicas: 3
   template:
     metadata:
       labels:
-        name: demoappprod
+        app: apache-app
     spec:
       containers:
       - name: apache-container
