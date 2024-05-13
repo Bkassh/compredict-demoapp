@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginxdepprod
+  name: demoappprod
   namespace: flux-system
   labels:
-    name: nginx-prod-deploy
+    name: demoappprod-deploy
 spec:
   selector:
     matchLabels:
-      app: nginxpod
+      name: demoappprod
   replicas: 3
   template:
     metadata:
       labels:
-        app: nginxpod
+        name: demoappprod
     spec:
       containers:
-      - name: nginx
-        image: nginx
+      - name: apache-container
+        image: avian19/apache-ne:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
