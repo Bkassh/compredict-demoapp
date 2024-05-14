@@ -11,3 +11,5 @@ spec:
     app: compredictstage
   ports:
     - port: 80 # Default port for image
+      targetPort: 8086
+      protocol: TCP
