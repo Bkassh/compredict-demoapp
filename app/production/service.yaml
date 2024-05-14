@@ -11,5 +11,5 @@ spec:
     app: compredictprod
   ports:
     - port: 80 # Default port for image
-      targetPort: 8085
+      targetPort: 8080
       protocol: TCP
