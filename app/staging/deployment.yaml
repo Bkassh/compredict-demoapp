@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginxdepstage
-  namespace: flux-system
+  name: compredictstage
+  namespace: banana-app-demo
   labels:
-    name: nginx-staging-deploy
+    name: banana-deploy
 spec:
   selector:
     matchLabels:
-      app: nginxpod
+      app: banana
   replicas: 1
   template:
     metadata:
       labels:
-        app: nginxpod
+        app: banana
     spec:
       containers:
-      - name: nginx
-        image: nginx
+      - name: banana-app
+        image: hashicorp/http-echo
         imagePullPolicy: Always
-        ports:
-        - containerPort: 80
+        args:
+        - "-text=banana"
