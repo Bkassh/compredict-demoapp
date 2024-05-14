@@ -4,9 +4,10 @@ metadata:
   name: compredictprod
   namespace: flux-system
   labels:
-    name: banana-service
+    name: nginx-service
 spec:
+  type: LoadBalancer
   selector:
-    app: banana
+    app: compredictprod
   ports:
-    - port: 5678 # Default port for image
+    - port: 80 # Default port for image

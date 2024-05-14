@@ -4,20 +4,19 @@ metadata:
   name: compredictprod
   namespace: flux-system
   labels:
-    name: banana-deploy
+    name: nginx-deploy
 spec:
   selector:
     matchLabels:
-      app: banana
+      app: compredictprod
   replicas: 1
   template:
     metadata:
       labels:
-        app: banana
+        app: compredictprod
     spec:
       containers:
-      - name: banana-app
-        image: hashicorp/http-echo
-        imagePullPolicy: Always
-        args:
-        - "-text=banana"
+        - name: nginx
+          image: nginx:1.17.3
+          ports:
+            - containerPort: 80
