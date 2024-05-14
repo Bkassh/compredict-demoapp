@@ -15,8 +15,26 @@ spec:
       labels:
         app: compredictstage
     spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - preference:
+                matchExpressions:
+                  - key: environment
+                    operator: In
+                    values:
+                      - Development
+              weight: 1
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - compredictdemo
       containers:
         - name: nginx
           image: nginx:1.17.3
           ports:
             - containerPort: 80
+              protocol: TCP
