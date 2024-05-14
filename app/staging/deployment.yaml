@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: compredictstage
-  namespace: banana-app-demo
+  namespace: flux-system
   labels:
     name: banana-deploy
 spec:
